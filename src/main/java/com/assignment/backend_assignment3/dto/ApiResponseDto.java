@@ -1,0 +1,17 @@
+package com.assignment.backend_assignment3.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ApiResponseDto<T> {
+
+    private String statusCode;
+    private String message;
+    private T data;
+}

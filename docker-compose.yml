@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  backend:
+    image: lenguyenthai/backend-23:latest  # Tên image trên Docker Hub
+    container_name: spring_boot_app
+    env_file:
+      - .env  # Nạp các biến môi trường từ file .env
+    ports:
+      - "8080:8080"
+    networks:
+      backend-network:
+        ipv4_address: 172.20.0.10  # Địa chỉ IP cố định cho backend
+
+networks:
+  backend-network:
+    driver: bridge  # Sử dụng driver bridge cho mạng
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16  # Dải địa chỉ IP cho mạng
